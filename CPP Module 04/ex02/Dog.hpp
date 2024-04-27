@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gotunc <gotunc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/19 23:52:25 by gotunc            #+#    #+#             */
-/*   Updated: 2024/04/25 00:25:03 by gotunc           ###   ########.fr       */
+/*   Created: 2024/04/19 23:51:41 by gotunc            #+#    #+#             */
+/*   Updated: 2024/04/25 09:43:13 by gotunc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
-# include <iostream>
+#ifndef DOG_HPP
+# define DOG_HPP
+# include "AAnimal.hpp"
+# include "Brain.hpp"
 
-class Animal
+
+class Dog: public AAnimal
 {
-	protected:
-		std::string type;
+	private:
+		Brain *brain;
 	public:
-		Animal(void);
-		Animal(Animal& s);
-		Animal &operator=(const Animal &other);
-		virtual ~Animal(void);
-		virtual void makeSound(void);
-		std::string getType(void);
+		Dog(void);
+		Dog(Dog& s);
+		Dog &operator=(Dog const &other);
+		~Dog(void);
+		void makeSound(void);
+		void compareTo(Dog const & other_dog) const;
 };
 
 #endif

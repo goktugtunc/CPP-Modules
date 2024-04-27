@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gotunc <gotunc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/19 23:52:25 by gotunc            #+#    #+#             */
-/*   Updated: 2024/04/25 00:25:03 by gotunc           ###   ########.fr       */
+/*   Created: 2024/04/19 23:51:36 by gotunc            #+#    #+#             */
+/*   Updated: 2024/04/25 00:40:05 by gotunc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
-# include <iostream>
+#ifndef CAT_HPP
+# define CAT_HPP
+# include "AAnimal.hpp"
+# include "Brain.hpp"
 
-class Animal
+class Cat: public AAnimal
 {
-	protected:
-		std::string type;
+	private:
+		Brain *brain;
 	public:
-		Animal(void);
-		Animal(Animal& s);
-		Animal &operator=(const Animal &other);
-		virtual ~Animal(void);
-		virtual void makeSound(void);
-		std::string getType(void);
+		Cat(void);
+		Cat(Cat& s);
+		Cat &operator=(const Cat &other);
+		~Cat(void);
+		void makeSound(void);
+		void compareTo(Cat const & other_cat) const;
 };
 
 #endif

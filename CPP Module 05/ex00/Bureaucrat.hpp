@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gotunc <gotunc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/19 23:52:25 by gotunc            #+#    #+#             */
-/*   Updated: 2024/04/25 00:25:03 by gotunc           ###   ########.fr       */
+/*   Created: 2024/04/27 15:38:36 by gotunc            #+#    #+#             */
+/*   Updated: 2024/04/27 17:30:17 by gotunc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
+
 # include <iostream>
 
-class Animal
+class Bureaucrat
 {
-	protected:
-		std::string type;
+	private:
+		const std::string name;
+		int grade;
+		Bureaucrat();
+		void GradeTooHighException();
+		void GradeTooLowException();
 	public:
-		Animal(void);
-		Animal(Animal& s);
-		Animal &operator=(const Animal &other);
-		virtual ~Animal(void);
-		virtual void makeSound(void);
-		std::string getType(void);
+		Bureaucrat(std::string Name, int level);
+		Bureaucrat(Bureaucrat &other);
+		std::string getName();
+		int getGrade();
+		Bureaucrat &operator=(Bureaucrat &other);
+		void increaseGrade();
+		void decreaseGrade();
+		~Bureaucrat();
 };
 
 #endif

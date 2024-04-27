@@ -6,37 +6,27 @@
 /*   By: gotunc <gotunc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 23:51:44 by gotunc            #+#    #+#             */
-/*   Updated: 2024/04/26 22:49:27 by gotunc           ###   ########.fr       */
+/*   Updated: 2024/04/26 22:54:28 by gotunc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
+#include "Brain.hpp"
 
 int	main(void)
 {
-	Animal* meta = new Animal();
-	Animal* j = new Dog();
-	Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
-	delete meta;
-	delete j;
-	delete i;
-	std::cout << "------------------ WRONG TESTS ------------------" << std::endl;
-	WrongAnimal *a = new WrongAnimal;
-	WrongAnimal *b = new WrongCat;
-	std::cout << a->getType() << std::endl;
-	std::cout << b->getType() << std::endl;
+	Cat *a = new Cat();
 	a->makeSound();
-	b->makeSound();
+	Dog *c = new Dog();
+	c->makeSound();
+	// AAnimal *b = new AAnimal();
+	a->makeSound();
 	delete a;
-	delete b;
-	system("leaks ex00");
+	delete c;
+	system("leaks ex02");
 }

@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gotunc <gotunc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/19 23:52:25 by gotunc            #+#    #+#             */
-/*   Updated: 2024/04/25 00:25:03 by gotunc           ###   ########.fr       */
+/*   Created: 2024/04/27 15:38:41 by gotunc            #+#    #+#             */
+/*   Updated: 2024/04/27 17:32:04 by gotunc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
-# include <iostream>
+#include "Bureaucrat.hpp"
 
-class Animal
+int main()
 {
-	protected:
-		std::string type;
-	public:
-		Animal(void);
-		Animal(Animal& s);
-		Animal &operator=(const Animal &other);
-		virtual ~Animal(void);
-		virtual void makeSound(void);
-		std::string getType(void);
-};
-
-#endif
+	Bureaucrat a("a", 150);
+	try
+	{
+		while (1)
+		{
+			std::cout << a.getName() + " ";
+			std::cout << a.getGrade() << std::endl;
+			a.increaseGrade();
+		}
+	}
+	catch (std::exception & e)
+	{
+		std::cerr << e.what() << std::endl;
+		std::cout << a.getGrade() << std::endl;
+	} // testler oluşturulacak
+}
