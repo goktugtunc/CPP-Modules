@@ -6,7 +6,7 @@
 /*   By: gotunc <gotunc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 00:43:07 by gotunc            #+#    #+#             */
-/*   Updated: 2024/07/24 20:03:58 by gotunc           ###   ########.fr       */
+/*   Updated: 2024/07/24 19:34:39 by gotunc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,12 @@ Bureaucrat::~Bureaucrat(void)
 	std::cout << "Bureaucrat " << this->name << " Destructor Called!" << std::endl;
 }
 
-std::string	Bureaucrat::getName(void)
+std::string	Bureaucrat::getName(void) const
 {
 	return (this->name);
 }
 
-int	Bureaucrat::getGrade(void)
+int	Bureaucrat::getGrade(void) const
 {
 	return (this->grade);
 }
@@ -104,8 +104,18 @@ void	Bureaucrat::decrementGrade(void)
 	this->setGrade(this->grade + 1);
 }
 
-std::ostream	&operator<<(std::ostream &o, Bureaucrat &bur)
+std::ostream	&operator<<(std::ostream &o, Bureaucrat *bur)
 {
-	o << "Bureaucrat Name: " << bur.getName() << std::endl << "Bureaucrat Grade: " << bur.getGrade() << std::endl;
+	o << "Bureaucrat Name: " << bur->getName() << std::endl << "Bureaucrat Grade: " << bur->getGrade() << std::endl;
 	return (o);
+}
+
+void	Bureaucrat::signForm(AForm &form)
+{
+	form.beSigned(*this);
+}
+
+void	Bureaucrat::execute(AForm &form)
+{
+	form.execute(*this);
 }

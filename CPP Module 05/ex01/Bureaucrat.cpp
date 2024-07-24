@@ -6,7 +6,7 @@
 /*   By: gotunc <gotunc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 00:43:07 by gotunc            #+#    #+#             */
-/*   Updated: 2024/07/24 20:03:58 by gotunc           ###   ########.fr       */
+/*   Updated: 2024/07/24 19:49:44 by gotunc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,4 +108,9 @@ std::ostream	&operator<<(std::ostream &o, Bureaucrat &bur)
 {
 	o << "Bureaucrat Name: " << bur.getName() << std::endl << "Bureaucrat Grade: " << bur.getGrade() << std::endl;
 	return (o);
+}
+
+void	Bureaucrat::signForm(Form &form)
+{
+	form.beSigned(*this);
 }

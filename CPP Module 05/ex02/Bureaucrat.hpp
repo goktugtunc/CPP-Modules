@@ -6,13 +6,16 @@
 /*   By: gotunc <gotunc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 00:43:04 by gotunc            #+#    #+#             */
-/*   Updated: 2024/07/24 20:03:42 by gotunc           ###   ########.fr       */
+/*   Updated: 2024/07/24 19:50:56 by gotunc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 # include <iostream>
+# include "AForm.hpp"
+
+class AForm;
 
 class Bureaucrat
 {
@@ -30,10 +33,12 @@ class Bureaucrat
 		Bureaucrat(Bureaucrat &other);
 		Bureaucrat &operator=(Bureaucrat &other);
 		~Bureaucrat(void);
-		std::string	getName(void);
-		int			getGrade(void);
+		std::string	getName(void) const;
+		int			getGrade(void) const;
 		void		incrementGrade(void);
 		void		decrementGrade(void);
+		void		signForm(AForm &form);
+		void		execute(AForm &form);
 		class GradeTooHighException: std::exception
 		{
 			public:
@@ -46,6 +51,6 @@ class Bureaucrat
 		};
 };
 
-std::ostream	&operator<<(std::ostream &o, Bureaucrat &bur);
+std::ostream	&operator<<(std::ostream &o, Bureaucrat *bur);
 
 #endif

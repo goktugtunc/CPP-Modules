@@ -1,8 +1,8 @@
 NAME = Bureaucrat
 
-SRCS = Bureaucrat.cpp main.cpp
+SRCS = Bureaucrat.cpp main.cpp Form.cpp
 
-OBJS = Bureaucrat.o main.o
+OBJS = Bureaucrat.o main.o Form.o
 
 COMPILE = c++ -Wall -Werror -Wextra -std=c++98
 
