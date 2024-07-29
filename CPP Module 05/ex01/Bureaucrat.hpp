@@ -6,7 +6,7 @@
 /*   By: gotunc <gotunc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 00:43:04 by gotunc            #+#    #+#             */
-/*   Updated: 2024/07/24 19:49:09 by gotunc           ###   ########.fr       */
+/*   Updated: 2024/07/29 15:46:37 by gotunc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class Bureaucrat
 		const std::string	name;
 		int					grade;
 		void				setGrade(int level);
-		void				getInfo(void);
 
 	public:
 		Bureaucrat(void);

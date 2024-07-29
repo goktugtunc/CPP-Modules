@@ -6,7 +6,7 @@
 /*   By: gotunc <gotunc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 00:43:01 by gotunc            #+#    #+#             */
-/*   Updated: 2024/07/24 20:12:34 by gotunc           ###   ########.fr       */
+/*   Updated: 2024/07/29 15:43:29 by gotunc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,36 @@ int main(void)
 	try
 	{
 		ebil.incrementGrade();
+	}
+	catch (Bureaucrat::GradeTooHighException& e) {
+		std::cerr << e.what() << std::endl;
+	}
+	catch (Bureaucrat::GradeTooLowException &e) {
+		std::cerr << e.what() << std::endl;
+	}
+	catch (AForm::GradeTooHighException& e) {
+		std::cerr << e.what() << std::endl;
+	}
+	catch (AForm::GradeTooLowException &e) {
+		std::cerr << e.what() << std::endl;
+	}
+
+	try
+	{
 		hermano.execute(scf);
 	}
-		catch (Bureaucrat::GradeTooHighException& e) {
-			std::cerr << e.what() << std::endl;
-		}
-		catch (Bureaucrat::GradeTooLowException &e) {
-			std::cerr << e.what() << std::endl;
-		}
-		catch (AForm::GradeTooHighException& e) {
-			std::cerr << e.what() << std::endl;
-		}
-		catch (AForm::GradeTooLowException &e) {
-			std::cerr << e.what() << std::endl;
-		}
+	catch (Bureaucrat::GradeTooHighException& e) {
+		std::cerr << e.what() << std::endl;
+	}
+	catch (Bureaucrat::GradeTooLowException &e) {
+		std::cerr << e.what() << std::endl;
+	}
+	catch (AForm::GradeTooHighException& e) {
+		std::cerr << e.what() << std::endl;
+	}
+	catch (AForm::GradeTooLowException &e) {
+		std::cerr << e.what() << std::endl;
+	}
 
 	std::cout << std::endl;
 	return EXIT_SUCCESS;

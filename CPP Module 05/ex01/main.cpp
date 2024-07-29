@@ -6,7 +6,7 @@
 /*   By: gotunc <gotunc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 00:43:01 by gotunc            #+#    #+#             */
-/*   Updated: 2024/07/24 20:11:01 by gotunc           ###   ########.fr       */
+/*   Updated: 2024/07/29 15:19:56 by gotunc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,10 @@ int main(void)
 {
 	std::cout << "GENERAL" << std::endl;
 	{
-		// Constructor
 		Form	a("Contract", 42, 42);
-		// Copy Constructor
 		Form	b(a);
-		// Copy assignment
 		Form	c = b;
 
-		// ostream overload
 		std::cout << "a:\n" << a << std::endl;
 		std::cout << "b:\n" << b << std::endl;
 		std::cout << "c:\n" << c << std::endl;
@@ -56,7 +52,6 @@ int main(void)
 		std::cout << "TEST 2" << std::endl;
 		try
 		{
-			// Grade too high
 			Form	b("B", 1 - 1, 42);
 			std::cout << b << std::endl;
 		}
@@ -78,7 +73,6 @@ int main(void)
 		std::cout << "TEST 3" << std::endl;
 		try
 		{
-			// Able to sign all forms
 			Bureaucrat	s1("Student1", 1);
 			std::cout << s1 << std::endl;
 
@@ -112,14 +106,12 @@ int main(void)
 		std::cout << "TEST 4" << std::endl;
 		try
 		{
-			// Unable to sign any form
 			Bureaucrat	s2("Student2", 150);
 			std::cout << s2 << std::endl;
 
 			Form	c3("C3", 1, 2);
 			std::cout << c3 << std::endl;
 
-			// Exception will be thrown
 			c3.beSigned(s2);
 			std::cout << c3 << std::endl;
 		}

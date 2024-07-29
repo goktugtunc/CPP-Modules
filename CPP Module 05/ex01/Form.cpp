@@ -6,7 +6,7 @@
 /*   By: gotunc <gotunc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 02:24:03 by gotunc            #+#    #+#             */
-/*   Updated: 2024/07/24 19:48:56 by gotunc           ###   ########.fr       */
+/*   Updated: 2024/07/29 15:32:27 by gotunc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,19 @@ Form::Form(void): name("Default"), isSigned(false), signGrade(150), executeGrade
 
 Form::Form(std::string exName, int exSignGrade, int exExecutorGrade): name(exName), isSigned(false), signGrade(exSignGrade), executeGrade(exExecutorGrade)
 {
+	if (this->signGrade > 150 || this->executeGrade > 150)
+		throw Form::GradeTooLowException();
+	else if (this->signGrade < 1 || this->executeGrade < 1)
+		throw Form::GradeTooHighException();
 	std::cout << "Form Created!" << std::endl;
 }
 
 Form::Form(Form &other): name(other.getName()), isSigned(other.getSignStatus()), signGrade(other.getSignGrade()), executeGrade(other.getExecutorGrade())
 {
+	if (this->signGrade > 150 || this->executeGrade > 150)
+		throw Form::GradeTooLowException();
+	else if (this->signGrade < 1 || this->executeGrade < 1)
+		throw Form::GradeTooHighException();
 	std::cout << "Form Created!" << std::endl;
 }
 
@@ -54,7 +62,7 @@ Form::~Form(void)
 
 void	Form::beSigned(Bureaucrat &bur)
 {
-	if (bur.getGrade() < this->getSignGrade())
+	if (bur.getGrade() > this->getSignGrade())
 		throw Form::GradeTooLowException();
 	else if (this->isSigned == true)
 		std::cout << bur.getName() << " couldn't sign " << this->getName() <<  " because form already signed!" << std::endl;
